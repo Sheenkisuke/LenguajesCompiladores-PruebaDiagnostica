@@ -13,44 +13,6 @@ Este repositorio contiene la solución a los 3 problemas de la prueba diagnósti
 
 ---
 
-## 📂 Estructura del Repositorio
-
-LenguajesCompiladores-PruebaDiagnostica/
-│
-├── README.md ← Este archivo (documentación general)
-│
-├── droblema1/
-│ ├── bin/Debug/ ← Archivos generados por Code::Blocks
-│ ├── obj/Debug/ ← Archivos generados por Code::Blocks
-│ ├── main.cpp ← Código fuente
-│ ├── problema1.cbp ← Proyecto de Code::Blocks
-│ ├── setup.bat ← Script de instalación
-│ └── README.md ← Documentación específica
-│
-├── droblema2/
-│ ├── bin/Debug/ ← Archivos generados por Code::Blocks
-│ ├── obj/Debug/ ← Archivos generados por Code::Blocks
-│ ├── main.cpp ← Código fuente
-│ ├── problema2.cbp ← Proyecto de Code::Blocks
-│ ├── setup.bat ← Script de instalación
-│ └── README.md ← Documentación específica
-│
-├── droblema3/
-│ ├── bin/Debug/ ← Archivos generados por Code::Blocks
-│ ├── obj/Debug/ ← Archivos generados por Code::Blocks
-│ ├── main.cpp ← Código fuente
-│ ├── problema3.cbp ← Proyecto de Code::Blocks
-│ ├── setup.bat ← Script de instalación
-│ └── README.md ← Documentación específica
-│
-└── defensa/ ← Enlace al video de defensa
-  └── defensa.txt ← Link del video
-
-
-----
-
-
----
 
 ## 📋 Resumen de los Problemas
 
