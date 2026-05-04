@@ -44,17 +44,17 @@ Para compilar y ejecutar los programas necesitas:
 
 ### Opción 2: Línea de comandos con MinGW
 
-# Problema 1
+#### Problema 1
 cd Problema1
 g++ main.cpp -o main.exe
 ./main.exe
 
-# Problema 2
+#### Problema 2
 cd Problema2
 g++ main.cpp -o main.exe
 ./main.exe
 
-# Problema 3
+#### Problema 3
 cd Problema3
 g++ main.cpp -o main.exe
 ./main.exe
@@ -67,7 +67,7 @@ Hacer doble clic en setup.bat dentro de cada carpeta para ver instrucciones.
 ---
 
 
-📹 Video de Defensa
+##📹 Video de Defensa
 El enlace al video de defensa se encuentra en el archivo:
 
 defensa.txt
