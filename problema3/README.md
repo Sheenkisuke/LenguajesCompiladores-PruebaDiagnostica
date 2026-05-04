@@ -1,4 +1,4 @@
-# Problema 2: Validador de Notación FEN (Forsyth-Edwards Notation)
+# Problema 3: Conjetura de Collatz
 
 Autor: Sheen Alburquerque  
 Materia: Lenguajes y Compiladores  
@@ -9,32 +9,30 @@ Periodo: 2026-I
 
 ## 📌 Enunciado
 
-Dado una cadena C, valide si C se encuentra en notación FEN (Forsyth-Edwards Notation), Forsyth–Edwards Notation. FEN (Wikipedia, 2025).
+Escriba un código que verifique si se cumple la conjetura de Collatz en enteros de un intervalo `[p, q]`.
 
-La notación FEN es un estándar para representar posiciones de ajedrez. Consta de 6 campos separados por espacios:
+La conjetura indica que para cualquier número entero positivo `n` se aplica:
 
-|Campo|         Significado          |          Valores posibles                   |
-|-----|------------------------------|---------------------------------------------|
-| 1 | Posición de las piezas         | 8 filas separadas por `/`, cada fila suma 8 |
-| 2 | Turno                          | `w` (blancas) o `b` (negras)                |
-| 3 | Derechos de enroque            | `KQkq` o combinación, o `-`                 |
-| 4 | Captura al paso                | Casilla (ej: `e3`, `a6`) o `-`              |
-| 5 | Contador de medios movimientos | Número ≥ 0                                  |
-| 6 | Número de movimiento completo  | Número ≥ 1                                  |
+- Si `n` es par → `n = n / 2`
+- Si `n` es impar → `n = 3n + 1`
 
-### Ejemplo de FEN válido (posición inicial)
+Regla especial: `q ≥ 100p` para poder aplicar la demostración.
 
-Entrada:
-rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+### Ejemplo
 
-Salida:
-FEN VALIDO
+Para `6 ≤ n ≤ 8`:
+n=6: 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+n=7: 7 → 22 → 11 → 34 → 17 → 52 → 26 → 13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+n=8: 8 → 4 → 2 → 1
+Demostrado...
+
+---
 
 🔧 Cómo Compilar y Ejecutar
 Opción 1: Code::Blocks (Recomendado)
 Abrir Code::Blocks
 
-Abrir el proyecto problema2.cbp (si existe)
+Crear nuevo proyecto o abrir problema3.cbp
 
 Presionar F9 (Compilar y ejecutar)
 
@@ -45,24 +43,32 @@ g++ main.cpp -o main.exe
 Opción 3: Usar setup.bat
 Hacer doble clic en setup.bat para ver instrucciones
 
-📋 Ejemplos de Prueba:
+📋 Ejemplos de Prueba
 
-1. FEN válido (posición inicial)
-Entrada: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
-Salida Esperada: FEN VALIDO
+1. Válido (cumple la regla)
+Entrada:
+p = 1
+q = 100
 
-2. FEN válido (después de 1.e4)
-Entrada: rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1
-Salida Esperada: FEN VALIDO
+Salida Esperada: Muestra las secuencias de Collatz para los números del 1 al 100 y finaliza con Demostrado...
 
-3. FEN inválido (fila con suma incorrecta)
-Entrada: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBN w KQkq - 0 1
-Salida Esperada: FEN INVALIDO (Error en Campo 1)
+2. Válido (intervalo mínimo)
+Entrada:
+p = 2
+q = 200
 
-4. FEN inválido (turno incorrecto)
-Entrada: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR x KQkq - 0 1
-Salida Esperada: FEN INVALIDO (Error en Campo 2: debe ser 'w' o 'b')
+Salida Esperada: q ≥ 100 * p → 200 ≥ 200 ✅
 
-5. FEN inválido (faltan campos)
-Entrada: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0
-Salida Esperada: FEN INVALIDO (Debe tener 6 campos)
+3. Inválido (no cumple la regla)
+Entrada:
+p = 6
+q = 8
+
+Salida Esperada: Error: Para aplicar la demostracion, q debe ser >= 100 * p q = 8, 100 * p = 600
+
+4. Inválido (números negativos)
+Entrada:
+p = -1
+q = 100
+
+Salida Esperada: Error: p y q deben ser numeros enteros positivos.
