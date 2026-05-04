@@ -43,7 +43,7 @@ Para compilar y ejecutar los programas necesitas:
 3. Presionar `F9` (Compilar y ejecutar)
 
 ### Opción 2: Línea de comandos con MinGW
-```bash
+
 # Problema 1
 cd Problema1
 g++ main.cpp -o main.exe
