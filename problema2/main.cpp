@@ -1,6 +1,22 @@
 /* Problema 2:
-Dado una cadena C, valide si C se encuentra en notaciÛn FEN (Forsyth-Edwards Notation),
-ForsythñEdwards Notation. FEN (Wikipedia, 2025).
+Dado una cadena C, valide si C se encuentra en notaci√≥n FEN (Forsyth-Edwards Notation),
+Forsyth‚ÄìEdwards Notation. FEN (Wikipedia, 2025).
+
+FEN significa Forsyth-Edwards Notation. Es un est√°ndar usado en ajedrez para representar una posici√≥n completa en una sola l√≠nea de texto.
+
+Por ejemplo, esta es la posici√≥n inicial del ajedrez: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
+
+Los torneos y programas de ajedrez usan FEN para guardar posiciones y reanudar partidas.
+
+FEN tiene 6 Campos separados por espacios:
+1	"Posici√≥n de las piezas: 8 filas separadas por /. Cada fila suma 8.
+     Las letras min√∫sculas son piezas negras, may√∫sculas son blancas.
+     Los n√∫meros son casillas vac√≠as."
+2	"Turno: w significa que mueven las blancas, b que mueven las negras."
+3	"Enroques: K (blancas enroque largo), Q (blancas enroque corto), k y q para negras, o - si nadie puede enrocar."
+4	"Captura al paso: casilla como e3 o a6, o - si no hay."
+5	"Contador de medios movimientos: n√∫mero ‚â• 0, para la regla de los 50 movimientos."
+6	"N√∫mero de movimiento completo: empieza en 1 y aumenta despu√©s de cada movimiento de negras."
 */
 
 #include <iostream>
@@ -11,13 +27,13 @@ ForsythñEdwards Notation. FEN (Wikipedia, 2025).
 
 using namespace std;
 
-// FunciÛn para verificar si un caracter es pieza v·lida (p,n,b,r,q,k)
+// Funci√≥n para verificar si un caracter es pieza v√°lida (p,n,b,r,q,k)
 bool esPiezaValida(char c) {
     string piezas = "PNBRQKpnbrqk";
     return piezas.find(c) != string::npos;
 }
 
-// FunciÛn para validar el Campo 1: posiciones de las piezas
+// Funci√≥n para validar el Campo 1: posiciones de las piezas
 bool validarPiezas(const string& campo) {
     // Debe tener 8 filas separadas por '/'
     vector<string> filas;
@@ -47,7 +63,7 @@ bool validarPiezas(const string& campo) {
                 suma += num;
             }
             else {
-                return false;  // Car·cter inv·lido
+                return false;  // Car√°cter inv√°lido
             }
         }
         if (suma != 8) {
@@ -58,12 +74,12 @@ bool validarPiezas(const string& campo) {
     return true;
 }
 
-// FunciÛn para validar Campo 2: turno
+// Funci√≥n para validar Campo 2: turno
 bool validarTurno(const string& campo) {
     return campo == "w" || campo == "b";
 }
 
-// FunciÛn para validar Campo 3: derechos de enroque
+// Funci√≥n para validar Campo 3: derechos de enroque
 bool validarEnroques(const string& campo) {
     // Caso especial: sin enroques
     if (campo == "-") {
@@ -101,7 +117,7 @@ bool validarEnroques(const string& campo) {
     return true;
 }
 
-// FunciÛn para validar Campo 4: captura al paso
+// Funci√≥n para validar Campo 4: captura al paso
 bool validarAlPaso(const string& campo) {
     // Caso especial: sin captura al paso
     if (campo == "-") {
@@ -121,7 +137,7 @@ bool validarAlPaso(const string& campo) {
         return false;
     }
 
-    // Validar n˙mero (solo 3 o 6 para al paso)
+    // Validar n√∫mero (solo 3 o 6 para al paso)
     if (numero != '3' && numero != '6') {
         return false;
     }
@@ -129,7 +145,7 @@ bool validarAlPaso(const string& campo) {
     return true;
 }
 
-// FunciÛn para verificar si un string es n˙mero entero
+// Funci√≥n para verificar si un string es n√∫mero entero
 bool esNumeroEntero(const string& str) {
     if (str.empty()) return false;
 
@@ -141,7 +157,7 @@ bool esNumeroEntero(const string& str) {
     return true;
 }
 
-// FunciÛn principal de validaciÛn FEN
+// Funci√≥n principal de validaci√≥n FEN
 bool validarFEN(const string& fen) {
     // Separar los 6 campos por espacios
     vector<string> campos;
@@ -193,7 +209,7 @@ bool validarFEN(const string& fen) {
         return false;
     }
 
-    // Campo 6: N˙mero de movimiento completo
+    // Campo 6: N√∫mero de movimiento completo
     if (!esNumeroEntero(campos[5])) {
         cout << "Error en Campo 6 (movimiento): " << campos[5] << " (debe ser un numero entero)" << endl;
         return false;
