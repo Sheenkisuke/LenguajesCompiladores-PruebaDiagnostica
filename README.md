@@ -60,14 +60,14 @@ g++ main.cpp -o main.exe
 ./main.exe
 
 
-Opción 3: Usar setup.bat
+### Opción 3: Usar setup.bat
 Hacer doble clic en setup.bat dentro de cada carpeta para ver instrucciones.
 
 
 ---
 
 
-##📹 Video de Defensa
+## 📹 Video de Defensa
 El enlace al video de defensa se encuentra en el archivo:
 
 defensa.txt
