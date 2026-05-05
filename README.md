@@ -71,3 +71,4 @@ Hacer doble clic en setup.bat dentro de cada carpeta para ver instrucciones.
 El enlace al video de defensa se encuentra en el archivo:
 
 defensa.txt
+https://youtu.be/pSVEgiYmxAo
